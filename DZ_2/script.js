@@ -15,47 +15,47 @@
 
 
 
-// class BookLibrary{
-//     #books = [];
-//     constructor(books){
-//         if (new Set(books).size !== books.length) {
-//             throw new Error('Книги содержать дубликаты');
-//         }
-//         this.#books = books;
-//     }
+class BookLibrary{
+    #books = [];
+    constructor(books = []){
+        if (new Set(books).size !== books.length) {
+            throw new Error('Книги содержать дубликаты');
+        }
+        this.#books = books;
+    }
 
-//     get allBooks() {
-//         return this.#books;
-//     }
+    get allBooks() {
+        return [...this.#books];
+    }
 
-//     addBook(title) {
-//         if (this.hasBook(title)){
-//             throw new Error(`Книга с названием ${title} уже есть в библиотеке`);
-//         }
-//         this.#books.push(title);
-//     }
+    addBook(title) {
+        if (this.hasBook(title)){
+            throw new Error(`Книга с названием ${title} уже есть в библиотеке`);
+        }
+        this.#books.push(title);
+    }
 
-//     removeBook(title) {
-//         if (!this.hasBook(title)){
-//             throw new Error(`Книги с названием ${title} нет в библиотеке`);
-//         }
-//         this.#books = this.#books.filter((book) => book !== title);
-//     }
-//     hasBook(title) {
-//         return this.#books.includes(title);
-//     }
-// }
+    removeBook(title) {
+        if (!this.hasBook(title)){
+            throw new Error(`Книги с названием ${title} нет в библиотеке`);
+        }
+        this.#books = this.#books.filter((book) => book !== title);
+    }
+    hasBook(title) {
+        return this.#books.includes(title);
+    }
+}
 
 
-// const Book = new BookLibrary(['Книга 1', 'Книга 2', 'Книга 3']);
-// console.log(Book.hasBook('Книга 4'));
-// console.log(Book.allBooks);
-// console.log(Book.addBook('Книга 5'));
-// console.log(Book.allBooks);
-// console.log(Book.removeBook('Книга 5'));
-// console.log(Book.allBooks);
-// console.log(Book.removeBook('Книга 8'));
-// console.log(Book.allBooks);
+const Book = new BookLibrary(['Книга 1', 'Книга 2', 'Книга 3']);
+console.log(Book.hasBook('Книга 4'));
+console.log(Book.allBooks);
+console.log(Book.addBook('Книга 5'));
+console.log(Book.allBooks);
+console.log(Book.removeBook('Книга 5'));
+console.log(Book.allBooks);
+console.log(Book.removeBook('Книга 8'));
+console.log(Book.allBooks);
 
 
 // Задание 2
